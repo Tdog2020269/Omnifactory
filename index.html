@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Factory Builder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Factory Builder</h1>
+    <div id="hud">
+      <span id="res-iron">Iron: 0</span>
+      <span id="res-gear">Gears: 0</span>
+      <span id="res-energy">Energy: 0</span>
+    </div>
+    <div id="toolbar">
+      <button data-building="miner">Miner (cost 10)</button>
+      <button data-building="smelter">Smelter (cost 20)</button>
+      <button data-building="assembler">Assembler (cost 30)</button>
+      <button data-building="delete">Delete</button>
+    </div>
+  </header>
+  <canvas id="game" width="960" height="640"></canvas>
+  <script src="main.js"></script>
+</body>
+</html>
