@@ -1,39 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Factory Builder</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omnifactory</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Factory Builder</h1>
-    <div id="hud">
-      <span id="res-iron">Iron: 0</span>
-      <span id="res-gear">Gears: 0</span>
-      <span id="res-energy">Energy: 0</span>
-    </div>
-    <div id="toolbar">
-      <button data-building="miner">Miner (cost 10)</button>
-      <button data-building="smelter">Smelter (cost 20)</button>
-      <button data-building="assembler">Assembler (cost 30)</button>
-      <button data-building="delete">Delete</button>
-    </div>
-    <div id="hud">
-  <span id="res-iron">Iron: 0</span>
-  <span id="res-gear">Gears: 0</span>
-  <span id="res-energy">Energy: 0</span>
-  <span id="res-research">Research: 0</span>
-  <span id="res-storage">Stored Iron: 0</span>
-    </div>
-    <div id="toolbar">
-  <button data-building="miner">Miner (cost 10)</button>
-  <button data-building="smelter">Smelter (cost 20)</button>
-  <button data-building="assembler">Assembler (cost 30)</button>
-  <button data-building="researchlab">Research Lab (cost 50)</button>
-  <button data-building="belt" disabled>Conveyor Belt (locked)</button>
-  <button data-building="storage" disabled>Storage (locked)</button>
+  <!-- HUD -->
+  <div id="hud">
+    <span id="res-iron">Iron: 0</span>
+    <span id="res-gear">Gears: 0</span>
+    <span id="res-energy">Energy: 0</span>
+    <span id="res-research">Research: 0</span>
+    <span id="res-storage">Stored Iron: 0</span>
+  </div>
+
+  <!-- Toolbar -->
+  <div id="toolbar">
+    <button data-building="miner">Miner (cost 10)</button>
+    <button data-building="smelter">Smelter (cost 20)</button>
+    <button data-building="assembler">Assembler (cost 30)</button>
+    <button data-building="researchlab">Research Lab (cost 50)</button>
+    <button data-building="belt" disabled>Conveyor Belt (locked)</button>
+    <button data-building="storage" disabled>Storage (locked)</button>
+    <button data-building="delete">Delete</button>
+  </div>
+
+  <!-- Save/Load -->
+  <div id="save-load">
+    <button id="save-btn">Save Game</button>
+    <button id="load-btn">Load Game</button>
+  </div>
+
+  <!-- Game canvas -->
+  <canvas id="game" width="960" height="640"></canvas>
+  <div id="tooltip" style="display:none; position:absolute;"></div>
+
+  <!-- Tech Tree -->
+  <div id="tech-tree">
+    <h3>Tech Tree</h3>
+    <ul>
+      <li id="tech-belts">Conveyor Belts (10 research) – Locked</li>
+      <li id="tech-storage">Storage (20 research) – Locked</li>
+      <li id="tech-circuits">Circuit Factory (40 research) – Locked</li>
+    </ul>
+  </div>
+
+  <!-- Mini-map -->
+  <canvas id="minimap" width="200" height="150"></canvas>
+
+  <script src="main.js"></script>
+</body>
+</html>
   <button data-building="delete">Delete</button>
     </div>
   </header>
