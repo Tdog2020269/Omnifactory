@@ -1,15 +1,113 @@
-body { font-family: system-ui, sans-serif; background:#111; color:#eee; margin:0; }
-header { display:flex; align-items:center; gap:16px; padding:12px; background:#1a1a1a; border-bottom:1px solid #333; }
-#hud span { margin-right:12px; padding:4px 8px; background:#222; border:1px solid #333; border-radius:4px; }
-#toolbar button { margin-right:8px; padding:6px 10px; background:#2a2a2a; color:#eee; border:1px solid #444; border-radius:4px; cursor:pointer; }
-#toolbar button.active { background:#3d5afe; border-color:#3d5afe; }
-#game { display:block; margin:0 auto; background:#0d0d0d; image-rendering: pixelated; }
+body {
+  margin: 0;
+  background: #121212;
+  color: #fff;
+  font-family: monospace;
+}
+
+#hud {
+  display: flex;
+  gap: 16px;
+  padding: 8px 16px;
+  background: #111;
+  border-bottom: 1px solid #333;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+#toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #1c1c1c;
+  border-bottom: 1px solid #333;
+}
+
+#toolbar button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+#toolbar button.active {
+  background: #2196f3;
+}
+
+#toolbar button:disabled {
+  background: #555;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+#save-load {
+  padding: 8px 16px;
+  background: #111;
+  border-top: 1px solid #333;
+}
+
+#save-load button {
+  margin-right: 8px;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  background: #0d0d0d;
+  border-top: 1px solid #333;
+}
+
 #tooltip {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 12px;
   pointer-events: none;
   position: absolute;
+  z-index: 10;
+}
+
+#tech-tree {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 220px;
+  background: #1c1c1c;
+  color: #fff;
+  padding: 8px;
+  border-left: 1px solid #333;
+  font-size: 13px;
+}
+
+#tech-tree h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+#tech-tree ul {
+  list-style: none;
+  padding: 0;
+}
+
+#tech-tree li {
+  margin: 4px 0;
+}
+
+#minimap {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border: 1px solid #333;
+  background: #0d0d0d;
 }
