@@ -359,3 +359,56 @@ function hexToRgba(hex, alpha = 1) {
   const b = parseInt(h.slice(4, 6), 16);
   return `rgba(${r},${g},${b},${alpha})`;
 }
+// --- Save/Load buttons ---
+document.getElementById('save-btn').addEventListener('click', save);
+document.getElementById('load-btn').addEventListener('click', load);
+
+// --- Tech Tree updater ---
+function updateTechTree() {
+  document.getElementById('tech-belts').textContent =
+    unlocks.belts ? "Conveyor Belts – Unlocked" : "Conveyor Belts (10 research) – Locked";
+  document.getElementById('tech-storage').textContent =
+    unlocks.storage ? "Storage – Unlocked" : "Storage (20 research) – Locked";
+  document.getElementById('tech-circuits').textContent =
+    unlocks.circuits ? "Circuit Factory – Unlocked" : "Circuit Factory (40 research) – Locked";
+}
+
+// Call inside updateUnlocks()
+function updateUnlocks() {
+  const beltBtn = document.querySelector('[data-building="belt"]');
+  const storageBtn = document.querySelector('[data-building="storage"]');
+  const circuitBtn = document.querySelector('[data-building="circuit"]');
+
+  if (beltBtn) beltBtn.disabled = !unlocks.belts;
+  if (storageBtn) storageBtn.disabled = !unlocks.storage;
+  if (circuitBtn) circuitBtn.disabled = !unlocks.circuits;
+
+  updateTechTree();
+}
+
+// --- Mini-map ---
+function drawMinimap() {
+  const m = document.getElementById('minimap');
+  const mctx = m.getContext('2d');
+  mctx.fillStyle = '#0d0d0d';
+  mctx.fillRect(0, 0, m.width, m.height);
+
+  const scaleX = m.width / GRID_W;
+  const scaleY = m.height / GRID_H;
+
+  for (let y = 0; y < GRID_H; y++) {
+    for (let x = 0; x < GRID_W; x++) {
+      const b = grid[y][x];
+      if (!b) continue;
+      const def = BUILDINGS[b.type];
+      mctx.fillStyle = def.color;
+      mctx.fillRect(x * scaleX, y * scaleY, scaleX, scaleY);
+    }
+  }
+}
+
+// Call at end of draw()
+function draw() {
+  // ... existing draw code ...
+  drawMinimap();
+}
