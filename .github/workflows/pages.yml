@@ -11,6 +11,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: github-pages  # ✅ Move it here
     steps:
       - name: Checkout
         uses: actions/checkout@v4
